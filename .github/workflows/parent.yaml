@@ -30,7 +30,8 @@ jobs:
          echo "Child Status: $child_status"
 
   dir:
-    runs-on: ubuntu-latest
+    # runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
     - name: created dirs and files
       run: |
@@ -40,7 +41,8 @@ jobs:
     - name: testing
       run: ls
   test:
-    runs-on: ubuntu-latest
+    # runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
     - name: testing dir and files
       run: ls
