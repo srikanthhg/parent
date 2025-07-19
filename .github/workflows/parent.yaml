@@ -26,5 +26,5 @@ jobs:
           -H "Accept: application/vnd.github+json" \
           -H "Authorization: Bearer ${{ secrets.GH_PATS }}" \
           -H "X-GitHub-Api-Version: 2022-11-28" \
-         child_status=$(https://api.github.com/repos/srikanthhg/child/actions/runs | jq '.workflow_runs | sort_by(.created_at) | last | {id: .id, name: .name, status: .status, conclusion: .conclusion, created_at: .created_at}')
+         child_status=$(curl -s https://api.github.com/repos/srikanthhg/child/actions/runs | jq '.workflow_runs | sort_by(.created_at) | last | {id: .id, name: .name, status: .status, conclusion: .conclusion, created_at: .created_at}')
          echo "Child Status: $child_status"
