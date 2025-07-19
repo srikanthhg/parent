@@ -30,8 +30,8 @@ jobs:
          echo "Child Status: $child_status"
 
   dir:
-    # runs-on: ubuntu-latest
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
+    # runs-on: self-hosted
     steps:
     - name: created dirs and files
       run: |
@@ -41,8 +41,37 @@ jobs:
     - name: testing
       run: ls
   test:
-    # runs-on: ubuntu-latest
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
+    # runs-on: self-hosted
     steps:
     - name: testing dir and files
       run: ls
+
+
+
+
+
+
+
+# name: Parent Workflow
+
+# on:
+#   push:
+#     branches:
+#       - main
+
+# jobs:
+#   trigger-child-workflows:
+#     runs-on: ubuntu-latest
+#     strategy:
+#       matrix:
+#         child-repo: [repo-b, repo-c]  # List of child repositories
+
+#     steps:
+#       - name: Trigger child workflow in Repo B or Repo C
+#         run: |
+#           curl -X POST \
+#             -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+#             -d '{"event_type": "trigger-child-workflow", "client_payload": {"repo": "${{ matrix.child-repo }}"}}' \
+#             https://api.github.com/repos/${{ matrix.child-repo }}/dispatches
+
