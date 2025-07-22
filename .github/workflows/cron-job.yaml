@@ -1,6 +1,6 @@
 name: Reminder
 on:
-  workflow-dispatch:
+  workflow_dispatch:
   schedule:
     - cron: '* * * * *'
 
