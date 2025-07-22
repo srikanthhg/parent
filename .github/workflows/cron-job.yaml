@@ -1,0 +1,10 @@
+name: Reminder
+on:
+  schedule:
+    - cron: "* * * * *"
+
+jobs:
+  reminder:
+    runs-on: self-hosted
+    steps:
+      - run: echo "hello this is cron jon"
