@@ -1,7 +1,8 @@
 name: Reminder
 on:
+  workflow-dispatch:
   schedule:
-    - cron: "* * * * *"
+    - cron: '* * * * *'
 
 jobs:
   reminder:
