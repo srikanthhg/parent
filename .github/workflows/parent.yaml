@@ -43,10 +43,15 @@ jobs:
   test:
     # runs-on: ubuntu-latest
     runs-on: self-hosted
+    needs: dir
     steps:
     - name: testing dir and files
       run: ls
-
+  cleanup:
+    runs-on: self-hosted
+    # runs-on: ubuntu-latest
+    needs: [dir, test]
+    steps:
     - name: Checkout code
       uses: actions/checkout@v4
       with:
