@@ -35,9 +35,8 @@ jobs:
     steps:
     - name: created dirs and files
       run: |
-       mkdir hello
-       mkdir hello1
-       touch hello.txt
+       mkdir -p hello
+       mkdir -p hello1
     - name: testing
       run: ls
   test:
